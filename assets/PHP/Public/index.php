@@ -3,7 +3,7 @@
 include('../Src/klusinfo.php');
 
 $Klanten = new Klanten();
-$alleKlanten = $Klanten->getAllCustomers();
+$alleKlanten = $Klanten->getAll();
 
 echo "<table border='1'>";
 echo "<th colspan=3>overzicht van alle games:</th>";
