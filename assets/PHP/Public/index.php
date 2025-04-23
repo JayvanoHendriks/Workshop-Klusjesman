@@ -1,9 +1,9 @@
 <?php
 
-include('../src/games.php');
+include('../Src/klusinfo.php');
 
-$games = new Games();
-$alleGames = $games->getAllGamesWithGenre();
+$Klanten = new Klanten();
+$alleKlanten = $Klanten->getAllCustomers();
 
 echo "<table border='1'>";
 echo "<th colspan=3>overzicht van alle games:</th>";
