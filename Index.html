@@ -6,17 +6,18 @@
     <title>Workshop-Klusjesman</title>
     <script src="assets/Js/Index.Js"></script>
     <link rel="stylesheet" href="assets/Css/Index.Css">
-    <link rel="stylesheet" href="assets/PHP/Public/Index.php">
+    <!-- <link rel="stylesheet" href="assets/PHP/Public/Index.php"> -->
 </head>
 <body>
     <h1>Welkom op de registratie pagina!</h1>
 
     <!-- Invoer velden aanmaken -->
-    <form>
+    <form method="POST">
         <label>Naam gebruiker: <input type="text" name="naam"></label><br>
         <label>Huidig adres: <input type="text" name="adres"></label><br>
         <label>Telefoonnummer: <input type="text" name="tellie"></label><br><br>
-        <input type="submit" value="Opslaan!" name="opslaan">
+        <button name="opslaan">Opslaan!</button>
+        <!-- <input type="button" value="Opslaan!" name="opslaan"> -->
     </form>
 </body>
 </html>
