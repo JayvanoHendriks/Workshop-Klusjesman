@@ -19,5 +19,4 @@ foreach ($alleGames as $game) {
     echo "</tr>";
 }
 
-
 echo "</table>";
