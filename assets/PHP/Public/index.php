@@ -15,7 +15,8 @@ include_once('../Src/klantInfo.php');
 
 $Klanten = new Klanten();
 $alleKlanten = $Klanten->getAllCustomers();
-include('../src/klusInfo.php.php');
+
+include('../src/klusInfo.php');
 $klus = new KlusInfo();
 $alleKlussen = $klussen->getAllKlussen();
 
