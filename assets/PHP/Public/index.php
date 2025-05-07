@@ -12,7 +12,7 @@ echo "<th>Uitgever</th>";
     
 foreach ($alleKlussen as $klus) {
     echo "<tr>";
-    echo "<td>$klus[klantId]</td>";
+    echo "<td>" . $klus['klantId']. "</td>";
     echo "<td>$klus[adres]</td>";
     echo "<td>$klus[gewerkteMinuten]</td>";
     echo "<td>$klus[voorrijkosten]</td>";
