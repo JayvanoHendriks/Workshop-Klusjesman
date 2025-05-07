@@ -5,11 +5,6 @@ include('../src/klusInfo.php.php');
 $klus = new KlusInfo();
 $alleKlussen = $klussen->getAllKlussen();
 
-include('../Src/klusinfo.php');
-
-$Klanten = new Klanten();
-$alleKlanten = $Klanten->getAll();
-
 echo "<table border='1'>";
 echo "<th colspan=3>overzicht van alle games:</th>";
 echo "<th>Uitgever</th>";
