@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop-Klusjesman</title>
-    <link rel="stylesheet" href="assets/Css/Index.Css">
-    <link rel="stylesheet" href="assets/PHP/Public/Index.php">
-    <script src="assets/Js/Index.Js"></script>
-    <script src="assets/Js/jquery-3.7.1.min.js"></script>
-</head>
-<body>
+
     <h1>Welkom op de registratie pagina!</h1>
 
     <!-- Invoer velden aanmaken -->
@@ -19,34 +8,33 @@
         <label>Telefoonnummer: <input type="text" name="tellie"></label><br><br>
         <input type="submit" value="Opslaan!" name="opslaan">
     </form>
-</body>
-</html>
-
-
 <?php
 
-include('../Src/klusinfo.php');
+include_once('../Src/klantInfo.php');
 
-// $Klanten = new Klanten();
-// $alleKlanten = $Klanten->getAll();
+$Klanten = new Klanten();
+$alleKlanten = $Klanten->getAllCustomers();
 
-// echo "<table border='1'>";
-// echo "<th colspan=3>overzicht van alle games:</th>";
-// echo "<th>Uitgever</th>";
+echo "<table border='1'>";
+echo "<th>Id</th>";
+echo "<th>Naam</th>";
+echo "<th>Telefoonnummer</th>";
+echo "<th>E-mailadres</th>";
+echo "<th>Straat</th>";
+echo "<th>Postcode</th>";
+echo "<th>Plaats</th>";
 
     
-// foreach ($alleGames as $game) {
-//     echo "<tr>";
-//     echo "<td>$game[gameName]</td>";
-//     echo "<td>$game[platform]</td>";
-//     echo "<td>$game[genre]</td>";
-//     echo "<td>$game[name]</td>";
-//     echo "</tr>";
-// }
-
-// echo "</table>";
-
-if (isset($_POST['opslaan'])){
-
-    echo "GELUKT";
+foreach ($alleKlanten as $klant) {
+    echo "<tr>";
+    echo "<td>$klant[id]</td>";
+    echo "<td>$klant[name]</td>";
+    echo "<td>$klant[telefoonnummer]</td>";
+    echo "<td>$klant[emailadres]</td>";
+    echo "<td>$klant[straat]</td>";
+    echo "<td>$klant[postcode]</td>";
+    echo "<td>$klant[plaats]</td>";
+    echo "</tr>";
 }
+
+echo "</table>";
