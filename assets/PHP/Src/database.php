@@ -7,7 +7,7 @@ class Database
 
     public function __construct()
     {
-        $this->connectie = new PDO("mysql:host=localhost;dbname=", "root", "");
+        $this->connectie = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8", DB_USER, DB_PASS);
     }
 
     public function voerQueryUit($query, $params = [])
