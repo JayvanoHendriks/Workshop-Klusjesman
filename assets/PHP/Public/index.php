@@ -1,21 +1,30 @@
 <?php
 
-include('../src/games.php');
+include('../src/klusInfo.php.php');
 
-$games = new Games();
-$alleGames = $games->getAllGamesWithGenre();
+$klus = new KlusInfo();
+$alleKlussen = $klussen->getAllKlussen();
 
 echo "<table border='1'>";
 echo "<th colspan=3>overzicht van alle games:</th>";
 echo "<th>Uitgever</th>";
 
     
-foreach ($alleGames as $game) {
+foreach ($alleKlussen as $klus) {
     echo "<tr>";
-    echo "<td>$game[gameName]</td>";
-    echo "<td>$game[platform]</td>";
-    echo "<td>$game[genre]</td>";
-    echo "<td>$game[name]</td>";
+    echo "<td>$klus[klantId]</td>";
+    echo "<td>$klus[adres]</td>";
+    echo "<td>$klus[gewerkteMinuten]</td>";
+    echo "<td>$klus[voorrijkosten]</td>";
+    echo "<td>$klus[uurtarief]</td>";
+    echo "<td>$klus[inkopenNodig]</td>";
+    echo "<td>$klus[extraKosten]</td>";
+    echo "<td>$klus[totaalBedrag]</td>";
+    echo "<td>$klus[omschijving]</td>";
+    echo "<td>$klus[wanneerIetsGedaan]</td>";
+    echo "<td>$klus[opmerkingen]</td>";
+    echo "<td>$klus[gefactureerd]</td>";
+    echo "<td>$klus[betaald]</td>";
     echo "</tr>";
 }
 
