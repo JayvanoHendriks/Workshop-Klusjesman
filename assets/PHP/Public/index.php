@@ -30,15 +30,6 @@ echo "<th>Postcode</th>";
 echo "<th>Plaats</th>";
 
     
-foreach ($alleKlanten as $klant) {
-    echo "<tr>";
-    echo "<td>$klant[id]</td>";
-    echo "<td>$klant[name]</td>";
-    echo "<td>$klant[telefoonnummer]</td>";
-    echo "<td>$klant[emailadres]</td>";
-    echo "<td>$klant[straat]</td>";
-    echo "<td>$klant[postcode]</td>";
-    echo "<td>$klant[plaats]</td>";
 foreach ($alleKlussen as $klus) {
     echo "<tr>";
     echo "<td>" . $klus['klantId']. "</td>";
