@@ -5,8 +5,10 @@
     <form method="post">
         <label>Naam gebruiker: <input type="text" name="naam"></label><br>
         <label>Huidig adres: <input type="text" name="adres"></label><br>
-        <label>Telefoonnummer: <input type="text" name="tellie"></label><br><br>
-        <input type="submit" value="Opslaan!" name="opslaan">
+        <label>Telefoonnummer: <input type="text" name="tellie"></label><br>
+        <label>E-mailadres <input type="text" name="mail"></label><br><br>
+        <input type="submit" value="Opslaan" name="opslaan">
+        <input type="submit" value="Annuleren" name="teruggaan">
     </form>
 <?php
 
@@ -18,7 +20,7 @@ $alleKlanten = $Klanten->getAllCustomers();
 
 include('../src/klusInfo.php');
 $klus = new KlusInfo();
-$alleKlussen = $klussen->getAllKlussen();
+$alleKlussen = $klus->getAllKlussen();
 
 
 echo "<table border='1'>";
