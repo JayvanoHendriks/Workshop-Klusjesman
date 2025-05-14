@@ -16,5 +16,12 @@ class Klanten extends Database
         $query = "INSERT INTO klanten (name, telefooonnummer, straat) VALUES (?, ?, ?);";
         $params = [$name, $phone, $adres];
         return parent::voerQueryUit($query, $params) > 0;
+
+    public function getCustomerByAddress($straat, $postcode, $woonplaats){
+        {
+        $query = "SELECT * FROM klanten WHERE straat = ? AND postcode = ? AND plaats = ?";
+        $params = [$straat, $postcode, $woonplaats];
+        return parent::voerQueryUit($query, $params);
+        }
     }
 }

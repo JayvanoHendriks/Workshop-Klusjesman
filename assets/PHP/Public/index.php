@@ -27,6 +27,9 @@ if ($Klanten->saveCustomer($naam, $adres, $telefoonnummer)){
     echo "Klant is opgeslagen";
 }
 $_POST = [];
+include('../src/klusInfo.php');
+$klus = new KlusInfo();
+$alleKlussen = $klussen->getAllKlussen();
 
 
 echo "<table border='1'>";
