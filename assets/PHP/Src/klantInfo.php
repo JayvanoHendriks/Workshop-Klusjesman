@@ -18,16 +18,6 @@ class Klanten extends Database
         $params = [$name, $phone, $adres, $email];
         return parent::voerQueryUit($query, $params) > 0;
     }
-  public function saveCustomer($name, $adres, $phone)
-  {
-    if ($name == "" || $adres == "" || $phone == "") {
-      return false;
-    }
-
-    $query = "INSERT INTO klanten (name, telefooonnummer, straat) VALUES (?, ?, ?);";
-    $params = [$name, $phone, $adres];
-    return parent::voerQueryUit($query, $params) > 0;
-  }
 
   public function getCustomerByAddress($straat, $postcode, $woonplaats)
   { {
