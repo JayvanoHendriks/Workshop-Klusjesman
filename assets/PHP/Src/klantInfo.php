@@ -9,13 +9,13 @@ class Klanten extends Database
     return parent::voerQueryUit($query);
   }
 
-  public function saveCustomer($name , $adres, $phone, $email){
-    if ($name == "" || $adres == "" || $phone == "" || $email == ""){
+  public function saveCustomer($name , $straat, $postcode, $plaats, $phone, $email){
+    if ($name == "" || $straat == "" || $postcode == "" || $plaats == "" || $phone == "" || $email == ""){
         return false;
       }
 
-    $query = "INSERT INTO klanten (name, telefooonnummer, straat, emailadres) VALUES (?, ?, ?, ?);";
-    $params = [$name, $phone, $adres, $email];
+    $query = "INSERT INTO klanten (name, telefooonnummer, straat, postcode, plaats, emailadres) VALUES (?, ?, ?, ?, ?, ?);";
+    $params = [$name, $phone, $straat, $postcode, $plaats, $email];
     return parent::voerQueryUit($query, $params) > 0;
   }
 
