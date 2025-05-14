@@ -5,7 +5,8 @@
     <form method="post">
         <label>Naam gebruiker: <input type="text" name="naam"></label><br>
         <label>Huidig adres: <input type="text" name="adres"></label><br>
-        <label>Telefoonnummer: <input type="text" name="tellie"></label><br><br>
+        <label>Telefoonnummer: <input type="text" name="tellie"></label><br>
+        <label>E-mailadres <input type="text" name="mail"></label><br><br>
         <input type="submit" value="Opslaan!" name="opslaan">
     </form>
 <?php
@@ -21,18 +22,22 @@ if(isset($_POST['opslaan'])){
     $naam = $_POST['naam'];
     $adres = $_POST['adres'];
     $telefoonnummer = $_POST['tellie'];
-}
+    $emailadres = $_POST["mail"];
+    $_POST = [];
 
-if ($Klanten->saveCustomer($naam, $adres, $telefoonnummer)){
-    echo "Klant is opgeslagen";
+
+    if ($Klanten->saveCustomer($naam, $adres, $telefoonnummer, $emailadres)){
+        echo "Klant is opgeslagen";
+    }
 }
-$_POST = [];
-include('../src/klusInfo.php');
-$klus = new KlusInfo();
-$alleKlussen = $klussen->getAllKlussen();
+    include_once('../src/klusInfo.php');
+    $klus = new KlusInfo();
+    $alleKlussen = $klus->getAllKlussen();
+
 
 
 echo "<table border='1'>";
+echo "<tr>";
 echo "<th>Id</th>";
 echo "<th>Naam</th>";
 echo "<th>Telefoonnummer</th>";
@@ -40,6 +45,7 @@ echo "<th>E-mailadres</th>";
 echo "<th>Straat</th>";
 echo "<th>Postcode</th>";
 echo "<th>Plaats</th>";
+echo "</tr>";
 
 foreach ($alleKlanten as $klant) {
     echo "<tr>";
@@ -86,14 +92,14 @@ foreach ($alleKlanten as $klant) {
 // $klussen = new KlusInfo();
 // $alleKlussen = $klussen->getAllKlussen();
 
-echo "<table border='1'>";
-echo "<th>klantId</th>";
-echo "<th>adres</th>";
-echo "<th>gewerkteMinuten</th>";
-echo "<th>voorrijkosten</th>";
-echo "<th>uurtarief</th>";
-echo "<th>inkopenNodig</th>";
-echo "<th>extraKosten</th>";
+// echo "<table border='1'>";
+// echo "<th>klantId</th>";
+// echo "<th>adres</th>";
+// echo "<th>gewerkteMinuten</th>";
+// echo "<th>voorrijkosten</th>";
+// echo "<th>uurtarief</th>";
+// echo "<th>inkopenNodig</th>";
+// echo "<th>extraKosten</th>";
 
 // foreach ($alleKlussen as $klus) {
 //     echo "<tr>";
