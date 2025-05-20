@@ -1,16 +1,5 @@
-
-    <h1>Welkom op de registratie pagina!</h1>
-
-    <!-- Invoer velden aanmaken -->
-    <form method="post">
-        <label>Naam gebruiker: <input type="text" name="naam"></label><br>
-        <label>Huidig adres: <input type="text" name="adres"></label><br>
-        <label>Telefoonnummer: <input type="text" name="tellie"></label><br><br>
-        <input type="submit" value="Opslaan!" name="opslaan">
-    </form>
+<h1>Informatie met tabel</h1>
 <?php
-
-
 include_once('../Src/klantInfo.php');
 
 $Klanten = new Klanten();
@@ -38,33 +27,18 @@ if (isset($_POST['zoekenNaam']))
         
 }
 
-include('../src/klusInfo.php');
-$klus = new KlusInfo();
-$alleKlussen = $klussen->getAllKlussen();
-
-
-
-echo "<table border='5'>";
-echo "<tr>";
-=======
 echo "<table border='1'>";
-
+echo "<tr>";
 echo "<th>Id</th>";
 echo "<th>Naam</th>";
 echo "<th>Telefoonnummer</th>";
 echo "<th>E-mailadres</th>";
-
 echo "<th>Adres</th>";
 echo "<th>Bekijken</th>";
 echo "</tr>";
 
-echo "<th>Straat</th>";
-echo "<th>Postcode</th>";
-echo "<th>Plaats</th>";
 
-
-    
-foreach ($alleKlussen as $klus) {
+foreach ($alleKlanten as $klant) {
     echo "<tr>";
 
     echo "<td>" . $klant['id'] . "</td>";
@@ -73,20 +47,16 @@ foreach ($alleKlussen as $klus) {
     echo "<td>" . $klant['emailadres'] . "</td>";
     echo "<td>" . $klant['Adres'] . "</td>";
     echo "<td>" . "<a href=orderdetailpaginaIndex.php?id=" . $klant ['id'] . ">" . "KlantInformatie Bekijken" . "</a></td>";
-    echo "<td>" . $klus['klantId']. "</td>";
-    echo "<td>$klus[adres]</td>";
-    echo "<td>$klus[gewerkteMinuten]</td>";
-    echo "<td>$klus[voorrijkosten]</td>";
-    echo "<td>$klus[uurtarief]</td>";
-    echo "<td>$klus[inkopenNodig]</td>";
-    echo "<td>$klus[extraKosten]</td>";
-    echo "<td>$klus[totaalBedrag]</td>";
-    echo "<td>$klus[omschijving]</td>";
-    echo "<td>$klus[wanneerIetsGedaan]</td>";
-    echo "<td>$klus[opmerkingen]</td>";
-    echo "<td>$klus[gefactureerd]</td>";
-    echo "<td>$klus[betaald]</td>";
-    echo "</tr>";
 }
-
 echo "</table>";
+?>
+
+<br><br>
+<form method="POST">
+    <input type="submit" value="Registeren" name="AnderePagina">
+</form>
+<?php
+if (isset($_POST['AnderePagina'])){
+    header ("Location: Registratie.php");
+}
+?>

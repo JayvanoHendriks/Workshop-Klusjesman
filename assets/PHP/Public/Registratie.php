@@ -36,7 +36,7 @@ if(isset($_POST['opslaan'])){
     $_POST = [];
 
 
-    if ($Klanten->saveCustomer($naam, $straat, $postcode, $plaats, $telefoonnummer, $emailadres)){
+    if ($Klanten->saveCustomer($naam, $adres, $telefoonnummer, $emailadres)){
         header ("Location: index.php");
     }
 }
