@@ -27,6 +27,12 @@ if(isset($_POST['opslaan'])){
     $plaats = $_POST['plaats'];
     $telefoonnummer = $_POST['tellie'];
     $emailadres = $_POST["mail"];
+
+    $adres = "";
+    
+    if ($straat != null || $postcode != null || $plaats != null){
+        $adres = $straat . ', ' . $postcode . ', ' . $plaats;
+    }
     $_POST = [];
 
 
