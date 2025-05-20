@@ -3,7 +3,7 @@
     <!-- Invoer velden aanmaken -->
     <form method="post">
         <label>Naam gebruiker: <input type="text" name="naam"></label><br>
-        <label>Straat: <input type="text" name="straat"></label><br>
+        <label>Straat & Huisnummer: <input type="text" name="straat"></label><br>
         <label>Postcode: <input type="text" name="postcode"></label><br>
         <label>Plaats: <input type="text" name="plaats"></label><br>
         <label>Telefoonnummer: <input type="text" name="tellie"></label><br>
@@ -36,7 +36,7 @@ if(isset($_POST['opslaan'])){
     $_POST = [];
 
 
-    if ($Klanten->saveCustomer($naam, $adres, $telefoonnummer, $emailadres)){
+    if ($Klanten->saveCustomer($naam, $straat, $postcode, $plaats, $telefoonnummer, $emailadres)){
         header ("Location: index.php");
     }
 }
