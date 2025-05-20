@@ -3,7 +3,9 @@
     <!-- Invoer velden aanmaken -->
     <form method="post">
         <label>Naam gebruiker: <input type="text" name="naam"></label><br>
-        <label>Huidig adres: <input type="text" name="adres"></label><br>
+        <label>Straat: <input type="text" name="straat"></label><br>
+        <label>Postcode: <input type="text" name="postcode"></label><br>
+        <label>Plaats: <input type="text" name="plaats"></label><br>
         <label>Telefoonnummer: <input type="text" name="tellie"></label><br>
         <label>E-mailadres <input type="text" name="mail"></label><br><br>
         <input type="submit" value="Opslaan" name="opslaan">
@@ -20,9 +22,17 @@ $alleKlanten = $Klanten->getAllCustomers();
 if(isset($_POST['opslaan'])){
 
     $naam = $_POST['naam'];
-    $adres = $_POST['adres'];
+    $straat = $_POST['straat'];
+    $postcode = $_POST['postcode'];
+    $plaats = $_POST['plaats'];
     $telefoonnummer = $_POST['tellie'];
     $emailadres = $_POST["mail"];
+
+    $adres = "";
+    
+    if ($straat != null || $postcode != null || $plaats != null){
+        $adres = $straat . ', ' . $postcode . ', ' . $plaats;
+    }
     $_POST = [];
 
 
