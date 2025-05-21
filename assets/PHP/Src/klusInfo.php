@@ -8,4 +8,13 @@ class KlusInfo extends Database
         INNER JOIN klanten AS kl ON k.klantid = kl.id";
         return parent::voerQueryUit($query);
     }
+
+    public function getAllJobs($name)
+{
+     $query = "SELECT * FROM klanten
+    INNER JOIN klus ON klanten.id = klus.klantid
+    WHERE naam = ?";
+    $params = [$name];
+    return parent::voerQueryUit($query, $params);
+}
 }
