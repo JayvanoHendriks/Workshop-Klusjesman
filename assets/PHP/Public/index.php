@@ -12,9 +12,11 @@ $alleKlanten = $Klanten->getAllCustomers();
 <form method="POST">
     <label>Naam: <input type="text" placeholder="Naam" name="zoektermNaam"></label><br>
     <label>Adres: <input type="text" placeholder="Adres" name="zoektermAdres"></label><br>
+    <label>Oud Adres: <input type="text" placeholder="Oud adres" name="zoektermOudAdres" /></label>
     <br>
     <input type="submit" value="Zoeken op naam" name="zoekenNaam">
     <input type="submit" value="Zoeken op adres" name="zoekenAdres">
+    <input type="submit" value="Zoeken op oud adres" name="zoekenOudAdres">
     </form>
     
 <?php
@@ -26,6 +28,9 @@ if (isset($_POST['zoekenNaam']))
         $alleKlanten = $Klanten->getCustomerByAdres($_POST['zoektermAdres']);
         
 }
+if (isset($_POST['zoekenOudAdres'])) {
+    $alleKlanten = $Klanten->getCustomerByOldAddress($_POST['zoektermOudAdres']);
+}
 
 echo "<table border='1'>";
 echo "<tr>";
@@ -34,6 +39,9 @@ echo "<th>Naam</th>";
 echo "<th>Telefoonnummer</th>";
 echo "<th>E-mailadres</th>";
 echo "<th>Adres</th>";
+if (isset($_POST['zoekenOudAdres'])) {
+    echo "<th>Oud Adres</th>";        
+   }
 echo "<th>Bekijken</th>";
 echo "</tr>";
 
@@ -46,7 +54,11 @@ foreach ($alleKlanten as $klant) {
     echo "<td>" . $klant['telefooonnummer'] . "</td>";
     echo "<td>" . $klant['emailadres'] . "</td>";
     echo "<td>" . $klant['Adres'] . "</td>";
+
     echo "<td>" . "<a href=KlantDetailpagina.php?id=" . $klant ['id'] . ">" . "KlantInformatie Bekijken" . "</a></td>";
+    if (isset($_POST['zoekenOudAdres'])) {
+        echo "<td>" . $klant['adres'] . "</td>";
+    }
 }
 echo "</table>";
 ?>
