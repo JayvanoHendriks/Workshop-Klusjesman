@@ -57,7 +57,8 @@ foreach ($alleKlanten as $klant) {
     if (isset($_POST['zoekenOudAdres'])) {
         echo "<td>" . $klant['adres'] . "</td>";
     }
-    echo "<td>" . "<a href=orderdetailpaginaIndex.php?id=" . $klant ['id'] . ">" . "KlantInformatie Bekijken" . "</a></td>";
+    echo "<td>" . "<a href=KlantDetailpagina.php?id=" . $klant ['id'] . ">" . "KlantInformatie Bekijken" . "</a></td>";
+
 }
 echo "</table>";
 ?>

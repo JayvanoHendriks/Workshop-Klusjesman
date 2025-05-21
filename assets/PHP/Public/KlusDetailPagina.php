@@ -7,28 +7,25 @@
 
 <?php
 require_once("../src/klantinfo.php");
+require_once("../src/klusinfo.php");
 
 $Klanten = new Klanten();
+$klussen = new KlusInfo();
 $getDeltailsVanKlanten = $Klanten->getCustomerDetails($_GET["id"]);
-$alleKlussen = $Klanten->getAllJobs();
+$getJobDateAndWhat = $Klanten->SaveWhenJob($gedaan, $wanneer);
 
 if(isset($_POST['opslaan'])){
 
     $gedaan = $_POST['wat'];
     $wanneer = $_POST['wanneer'];
 
-
-    $Klanten->SaveWhenJob($gedaan, $wanneer);
-        
-    
-    
 }
 echo "<table border='1'>";
 echo "<tr>";
 echo "<th>Wanneer?</th>";
 echo "<th>Wat?</th>";
 echo "</tr>";
-        foreach ($alleKlussen as $klant) {
+        foreach ($allJobs as $klant) {
             echo "<tr>";
             echo "<td>" . $klant['wanneerIetsGedaan'] . "</td>";
             echo "<td>" . $klant['WatGedaan'] . "</td>";
