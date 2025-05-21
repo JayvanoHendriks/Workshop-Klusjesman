@@ -54,10 +54,11 @@ foreach ($alleKlanten as $klant) {
     echo "<td>" . $klant['telefooonnummer'] . "</td>";
     echo "<td>" . $klant['emailadres'] . "</td>";
     echo "<td>" . $klant['Adres'] . "</td>";
+
+    echo "<td>" . "<a href=KlantDetailpagina.php?id=" . $klant ['id'] . ">" . "KlantInformatie Bekijken" . "</a></td>";
     if (isset($_POST['zoekenOudAdres'])) {
         echo "<td>" . $klant['adres'] . "</td>";
     }
-    echo "<td>" . "<a href=orderdetailpaginaIndex.php?id=" . $klant ['id'] . ">" . "KlantInformatie Bekijken" . "</a></td>";
 }
 echo "</table>";
 ?>

@@ -54,6 +54,7 @@ public function getCustomerDetails($klantId)
       return parent::VoerQueryUit($query, $params);
 }
 
+
 public function SaveWhenJob($gedaan, $wanneerGedaan){
       if ($gedaan == "" || $wanneerGedaan == "") {
       return false;
@@ -63,12 +64,6 @@ public function SaveWhenJob($gedaan, $wanneerGedaan){
     ";
     $params = [$gedaan, $wanneerGedaan];
     return parent::voerQueryUit($query, $params) > 0;
-}
-
-public function getAllJobs()
-{
-      $query = "SELECT * FROM klus";
-    return parent::voerQueryUit($query);
 }
 
 }
