@@ -35,6 +35,17 @@ public function getCustomerByAdres($zoekterm)
     return parent::voerQueryUit($query, $params);
 }
 
+public function getCustomerByOldAddress($zoekterm)
+{
+    $query = "SELECT k.name, k.emailadres, k.telefooonnummer, k.Adres, kl.adres, k.id
+    FROM klanten as k
+    INNER JOIN klus as kl
+    ON k.id = kl.klantid
+    WHERE kl.adres like ?";
+    $params = ['%' . $zoekterm . '%'];
+    return parent::voerQueryUit($query, $params);
+}
+
 public function getCustomerDetails($klantId)
 {
       $query = "SELECT * FROM klanten as k
