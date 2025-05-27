@@ -8,10 +8,14 @@ $totaal = 0.00;
 if (isset($_POST['calc'])) {
     $uurtarief = $_POST['uurtarief'];
     $minutenGewerkt = $_POST['minuten'];
+    $voorrijkosten = $_POST['voorrijkosten'];
+    $extraKosten = $_POST['extraKosten'];
     $minuuttarief = $uurtarief / 60;
     $totaal = $minuuttarief * $minutenGewerkt;
-    $totaalParsed = number_format((float)$totaal, 2, '.', '');
+    $totaal += $voorrijkosten;
+    $totaal += $extraKosten;
 }
+$totaalParsed = number_format((float)$totaal, 2, '.', '');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +26,10 @@ if (isset($_POST['calc'])) {
 </head>
 <body>
     <form action="" method="post">
-        <label>Uurtarief: </label><input type="number" name="uurtarief" step="0.01" id=""><br>
-        <label>Gewerkte minuten: </label><input type="number" name="minuten" id=""><br>
+        <label>VoorrijKosten: </label><input type="number" name="voorrijkosten" step="0.01" id="" value="<?php if(isset($_POST['calc'])) {echo $voorrijkosten;} ?>"><br>
+        <label>Uurtarief: </label><input type="number" name="uurtarief" step="0.01" id="" value="<?php if(isset($_POST['calc'])) {echo $uurtarief;} ?>"><br>
+        <label>Gewerkte minuten: </label><input type="number" name="minuten" id="" value="<?php if(isset($_POST['calc'])) {echo $minutenGewerkt;} ?>"><br>
+        <label>extra Kosten: </label><input type="number" name="extraKosten" step="0.01" id="" value="<?php if(isset($_POST['calc'])) {echo $extraKosten;} ?>"><br>
         <input type="submit" value="bereken" name="calc">
     </form>
     <h3>Totaalbedrag: €<?php echo $totaalParsed;?></h3>

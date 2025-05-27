@@ -39,3 +39,4 @@ if (isset($_POST['nieuweKlus'])){
     header ("Location: NieuweKlus.php");
 }
 ?>
+<a href="../public">terug naar overzicht</a>
