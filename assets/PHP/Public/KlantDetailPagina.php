@@ -29,11 +29,21 @@ $klant = $Klanten->getCustomerDetails($_GET["id"])[0];
         <th>gefactureerd</th>
         <th>betaald</th>
     </tr>
+    <tr>
+        <td>tegels in de achtertuin aangelegd</td>
+        <td>ja</td>
+        <td>nee</td>
+    </tr>
+    <tr>
+        <td>bijkeuken gesloopt</td>
+        <td>nee</td>
+        <td>nee</td>
+    </tr>
 </table>
 <br><br>
-<form method="POST">
+<!-- <form method="POST">
     <input type="submit" value="Klus registeren!" name="nieuweKlus">
-</form>
+</form> -->
 <?php
 if (isset($_POST['nieuweKlus'])){
     header ("Location: NieuweKlus.php");
