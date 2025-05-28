@@ -41,11 +41,14 @@ $klant = $Klanten->getCustomerDetails($_GET["id"])[0];
     </tr>
 </table>
 <br><br>
-<!-- <form method="POST">
+<form method="POST">
     <input type="submit" value="Klus registeren!" name="nieuweKlus">
-</form> -->
+</form>
+<form method="POST">
+    <input type="submit" value="Terug naar Overzicht" name="overzicht">
+</form>
 <?php
-if (isset($_POST['nieuweKlus'])){
-    header ("Location: NieuweKlus.php");
+if (isset($_POST['overzicht'])){
+    header ("Location: index.php");
 }
 ?>
