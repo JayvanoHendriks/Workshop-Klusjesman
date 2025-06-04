@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 10:53 AM
+-- Generation Time: Jun 04, 2025 at 09:40 AM
 -- Server version: 5.7.17
 -- PHP Version: 8.3.3
 
@@ -123,7 +123,8 @@ CREATE TABLE `klus_materialen` (
   `id` int(11) NOT NULL,
   `klus_id` int(11) NOT NULL,
   `materiaal_id` int(11) NOT NULL,
-  `aantal_gebruikt` int(11) NOT NULL
+  `aantal_gebruikt` int(11) NOT NULL,
+  `TotaalPrijs` decimal(10,2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -135,8 +136,18 @@ CREATE TABLE `klus_materialen` (
 CREATE TABLE `materialen` (
   `id` int(11) NOT NULL,
   `naam` varchar(100) NOT NULL,
-  `aantal_op_vooraad` int(11) NOT NULL
+  `aantal_op_vooraad` int(11) NOT NULL,
+  `prijs_per_stuk` decimal(10,2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `materialen`
+--
+
+INSERT INTO `materialen` (`id`, `naam`, `aantal_op_vooraad`, `prijs_per_stuk`) VALUES
+(1, 'Metaal', 502, '2.10'),
+(2, 'Houten Balk', 23, '3.40'),
+(3, 'Schroeven M5', 169, '0.05');
 
 --
 -- Indexes for dumped tables
@@ -192,7 +203,7 @@ ALTER TABLE `klus_materialen`
 -- AUTO_INCREMENT for table `materialen`
 --
 ALTER TABLE `materialen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
