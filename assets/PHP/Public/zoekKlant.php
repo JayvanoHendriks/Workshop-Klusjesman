@@ -4,8 +4,7 @@ require_once ('../src/klantInfo.php');
 if (isset($_POST['submit'])) {
     $klantenService = new Klanten();
     $straat = $_POST['straat'];
-    $name  = $_POST['name'];
-    $klanten = $klantenService->getCustomerByAddress($name, $straat);
+    $klanten = $klantenService->getCustomerByAdres( $straat);
 }
 ?>
 <!DOCTYPE html>
