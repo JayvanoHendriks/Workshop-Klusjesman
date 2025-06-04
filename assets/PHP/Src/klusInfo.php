@@ -10,11 +10,17 @@ class KlusInfo extends Database
     }
 
     public function getAllJobs($name)
-{
-     $query = "SELECT * FROM klanten
-    INNER JOIN klus ON klanten.id = klus.klantid
-    WHERE naam = ?";
-    $params = [$name];
-    return parent::voerQueryUit($query, $params);
-}
+    {
+        $query = "SELECT * FROM klanten
+        INNER JOIN klus ON klanten.id = klus.klantid
+        WHERE naam = ?";
+        $params = [$name];
+        return parent::voerQueryUit($query, $params);
+    }
+
+    public function getAllMaterials()
+    {
+        $query = "SELECT * FROM materialen";
+        return parent::voerQueryUit($query);
+    }
 }
