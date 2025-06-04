@@ -7,7 +7,9 @@
     <title>Voeg een klus toe</title>
     <script src="../../Js/jquery-3.7.1.min.js"></script>
     <script>
-        $on.document
+        $(document).ready(
+            
+        )
     </script>
 </head>
 
@@ -17,9 +19,9 @@
         <label>Opmerkingen: </label><textarea name="opmerkingen"></textarea><br>
         <label>Voorrijkosten: <input type="number" name="voorrijkosten" step="0.01"></label><br>
         <label>Uurtarief: <input type="number" name="voorrijkosten" step="0.01"></label><br>
-        <label>Gewerkte Minuten: <input type="text" name="gewerkteMinuten"></label><br>
+        <label>Gewerkte Uren: <input type="text" name="gewerkteUren"></label><br>
         <label>Materialen: <select id="materials">
-                <?=
+                <!-- <?=
                     require_once("../Src/materialen.php");
                 $materialen = new Materialen();
                 $rows = $materialen->getAllMaterials();
@@ -27,9 +29,10 @@
                     echo "<option value='" . $materiaal['id'] . "'>" . $materiaal['naam'] . "</option>";
                 }
 
-                ?>
+                ?> -->
             </select></label>
             <button id="AddMateriaal">Voeg toe</button>
+            <table id="materiaalTabel"></table>
     </form>
 </body>
 
