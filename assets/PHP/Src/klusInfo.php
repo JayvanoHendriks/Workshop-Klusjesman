@@ -9,12 +9,24 @@ class KlusInfo extends Database
         return parent::voerQueryUit($query);
     }
 
-    public function getAllJobs($name)
+    public function getAllJobs($klantId)
 {
      $query = "SELECT * FROM klanten
     INNER JOIN klus ON klanten.id = klus.klantid
-    WHERE naam = ?";
-    $params = [$name];
+    WHERE klantid = ?";
+    $params = [$klantId];
     return parent::voerQueryUit($query, $params);
 }
+
+  public function saveDateOrWhat( $klantId , $WatGedaan , $WanneerIetsGedaan){
+    if ($klantId == "" || $WatGedaan == "" || $WanneerIetsGedaan == ""){
+        return false;
+      }
+
+
+    $query = "INSERT INTO klus (klantid, WatGedaan, wanneerIetsGedaan) VALUES (?, ?, ?);";
+    $params = [ $klantId, $WatGedaan, $WanneerIetsGedaan];
+
+    return parent::voerQueryUit($query, $params) > 0;
+  }
 }
