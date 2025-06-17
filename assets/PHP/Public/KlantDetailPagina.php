@@ -41,9 +41,7 @@ $klant = $Klanten->getCustomerDetails($_GET["id"])[0];
     </tr>
 </table>
 <br><br>
-<form method="POST">
-    <input type="submit" value="Klus registeren!" name="nieuweKlus">
-</form>
+<a href="../public/nieuweKlus.php?klantId=<?=$klant['id'];?>&adres=<?=$klant['Adres'];?>">Nieuwe Klus</a>
 <form method="POST">
     <input type="submit" value="Terug naar Overzicht" name="overzicht">
 </form>
