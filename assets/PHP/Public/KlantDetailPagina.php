@@ -47,20 +47,20 @@ $alleKlussen = $klussen->getAllJobs($id);
     </tr>
     <tr>
         <th>Klusnummer</th>
-        <th>Opmerkingen</th>
+        <th>Wat is er gedaan?</th>
         <th>Gefactureerd</th>
         <th>Betaald</th>
         <th>Klus datum</th>
-        <th>Wat is er gedaan?</th>
+        <th>Opmerkingen</th>
     </tr>
     <?php foreach ($alleKlussen as $klus): ?>
     <tr>
-            <td><?= $klus['klusid'] ?></td>
-            <td><?= $klus['opmerkingen'] ?></td>
-            <td><?= $klus['gefactureerd'] ?></td>
-            <td><?= $klus['betaald'] ?></td>
-            <td><?= $klus['wanneerIetsGedaan'] ?></td>
+            <td><?= $klus['id'] ?></td>
             <td><?= $klus['WatGedaan'] ?></td>
+            <td><?php echo $klus['gefactureerd'] == 0 ? "nee" : "ja"; ?></td>
+            <td><?php echo $klus['betaald'] == 0 ? "nee" : "ja"; ?></td>
+            <td><?= $klus['wanneerIetsGedaan'] ?></td>
+            <td><?= $klus['opmerkingen'] ?></td>
         </tr>
         <?php endforeach;?>
 </table>
