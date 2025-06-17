@@ -74,11 +74,7 @@ $alleKlussen = $klussen->getAllJobs($id);
 </form>
 
 <br><br>
-
-<form method="POST">
-    <input type="submit" value="Klus registeren!" name="nieuweKlus">
-</form>
-
+<a href="../public/nieuweKlus.php?klantId=<?=$klant['id'];?>&adres=<?=$klant['Adres'];?>">Nieuwe Klus</a>
 <form method="POST">
     <input type="submit" value="Terug naar Overzicht" name="overzicht">
 </form>
@@ -97,3 +93,4 @@ if (isset($_POST['WatOfWanneer'])) {
     exit;
 }
 ?>
+<a href="../public">terug naar overzicht</a>
