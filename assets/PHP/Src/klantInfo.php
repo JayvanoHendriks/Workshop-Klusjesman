@@ -49,7 +49,7 @@ public function getCustomerByOldAddress($zoekterm)
 public function getCustomerDetails($klantId)
 {
       $query = "SELECT * FROM klanten as k
-      where Id = ?";
+      where id = ?";
       $params = [$klantId];
       return parent::VoerQueryUit($query, $params);
 }
