@@ -55,7 +55,7 @@ $alleKlussen = $klussen->getAllJobs($id);
     </tr>
     <?php foreach ($alleKlussen as $klus): ?>
     <tr>
-            <td><?= $klus['id'] ?></td>
+            <td><?= $klus['klusid'] ?></td>
             <td><?= $klus['WatGedaan'] ?></td>
             <td><?php echo $klus['gefactureerd'] == 0 ? "nee" : "ja"; ?></td>
             <td><?php echo $klus['betaald'] == 0 ? "nee" : "ja"; ?></td>
