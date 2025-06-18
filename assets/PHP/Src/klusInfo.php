@@ -53,4 +53,12 @@ class KlusInfo extends Database
 
     return parent::voerQueryUit($query, $params) > 0;
   }
+
+  public function opmerkingenToevoegen($klantId, $opmerkingen){
+    $query = "UPDATE klus SET opmerkingen = ?
+    WHERE klanid = ?";
+    $params = [$klantId, $opmerkingen];
+
+   return parent::voerQueryUit($query, $params) > 0;
+  }
 }
