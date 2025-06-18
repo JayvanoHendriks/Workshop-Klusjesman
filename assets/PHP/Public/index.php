@@ -68,8 +68,17 @@ echo "</table>";
 <form method="POST">
     <input type="submit" value="Registeren" name="AnderePagina">
 </form>
+
+<br><br>
+<form method="POST">
+    <input type="submit" value="Matrialen" name="PaginaMaterialen">
+</form>
 <?php
 if (isset($_POST['AnderePagina'])){
     header ("Location: Registratie.php");
+}
+
+if (isset($_POST['PaginaMaterialen'])){
+    header ("Location: Matrialen.php");
 }
 ?>

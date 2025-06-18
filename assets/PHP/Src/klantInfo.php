@@ -66,16 +66,7 @@ public function SaveWhenJob($gedaan, $wanneerGedaan){
     return parent::voerQueryUit($query, $params) > 0;
 }
 
-public function SaveMatetials($naamMaterialen, $Aantal){
-      if ($naamMaterialen == "" || $Aantal == "") {
-      return false;
-    }
 
-    $query = "INSERT INTO materialen (naamMaterialen, Aantal) VALUES (?, ?);
-    ";
-    $params = [$naamMaterialen, $Aantal];
-    return parent::voerQueryUit($query, $params) > 0;
-}
 
 }
 
