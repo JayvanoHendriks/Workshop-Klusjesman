@@ -24,7 +24,7 @@ if(isset($_POST['opslaan'])){
     $Aantal = $_POST['aantal'];
     $Prijs = $_POST['prijs'];
 
-    if ($Materialen->SaveMatetials($naamMaterialen, $Aantal, $Prijs)){
+    if ($materialenService->SaveMatetials($naamMaterialen, $Aantal, $Prijs)){
         header ("Location: materialen.php");
     }
 }

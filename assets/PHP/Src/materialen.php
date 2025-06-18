@@ -12,7 +12,7 @@ Class Materialen extends Database {
       return false;
     }
 
-    $query = "INSERT INTO materialen (naamMaterialen, Aantal, Prijs) VALUES (?, ?, ?);
+    $query = "INSERT INTO materialen (naam, aantal_op_vooraad, prijs_per_stuk) VALUES (?, ?, ?);
     ";
     $params = [$naamMaterialen, $Aantal, $Prijs];
     return parent::voerQueryUit($query, $params) > 0;
