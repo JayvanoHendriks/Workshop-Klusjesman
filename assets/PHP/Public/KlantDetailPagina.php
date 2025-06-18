@@ -3,6 +3,7 @@ require_once("../src/klantinfo.php");
 require_once("../src/klusInfo.php");
 
 $Klanten = new Klanten();
+
 // Veilig ID ophalen vanuit GET of POST
 $id = $_GET['id'] ?? $_POST['klant_id'] ?? null;
 
@@ -11,7 +12,6 @@ if (!$id) {
 }
 
 $klant = $Klanten->getCustomerDetails($id)[0];
-
 
 $klussen = new KlusInfo();
 $alleKlussen = $klussen->getAllJobs($id);
@@ -28,9 +28,9 @@ $alleKlussen = $klussen->getAllJobs($id);
     </tr>
 <?php if ($klant): ?>
     <tr>
-        <td><?= $klant['name'] ?></td>
-        <td><?= $klant['telefooonnummer'] ?></td>
-        <td><?= $klant['Adres'] ?></td>
+        <td><?= htmlspecialchars($klant['name']) ?></td>
+        <td><?= htmlspecialchars($klant['telefooonnummer']) ?></td>
+        <td><?= htmlspecialchars($klant['Adres']) ?></td>
     </tr>
 <?php else: ?>
     <tr>
@@ -43,7 +43,7 @@ $alleKlussen = $klussen->getAllJobs($id);
 
 <table border="1">
     <tr>
-        <th colspan=6>Klussen:</th>
+        <th colspan="7">Klussen:</th>
     </tr>
     <tr>
         <th>Klusnummer</th>
@@ -52,17 +52,21 @@ $alleKlussen = $klussen->getAllJobs($id);
         <th>Betaald</th>
         <th>Klus datum</th>
         <th>Opmerkingen</th>
+        <th>Bekijk</th>
     </tr>
     <?php foreach ($alleKlussen as $klus): ?>
-    <tr>
+        <tr>
             <td><?= $klus['klusid'] ?></td>
             <td><?= $klus['WatGedaan'] ?></td>
-            <td><?php echo $klus['gefactureerd'] == 0 ? "nee" : "ja"; ?></td>
-            <td><?php echo $klus['betaald'] == 0 ? "nee" : "ja"; ?></td>
+            <td><?= $klus['gefactureerd'] == 0 ? "nee" : "ja"; ?></td>
+            <td><?= $klus['betaald'] == 0 ? "nee" : "ja"; ?></td>
             <td><?= $klus['wanneerIetsGedaan'] ?></td>
             <td><?= $klus['opmerkingen'] ?></td>
+            <td>
+                <a href="opmerkingen.php?klant_id=<?= urlencode($id) ?>&klus_id=<?= $klus['klusid'] ?>">Opmerking</a>
+            </td>
         </tr>
-        <?php endforeach;?>
+    <?php endforeach; ?>
 </table>
 
 <br>
@@ -74,7 +78,9 @@ $alleKlussen = $klussen->getAllJobs($id);
 </form>
 
 <br><br>
-<a href="../public/nieuweKlus.php?klantId=<?=$klant['id'];?>&adres=<?=$klant['Adres'];?>">Nieuwe Klus</a>
+
+<a href="../public/nieuweKlus.php?klantId=<?= urlencode($klant['id']) ?>&adres=<?= urlencode($klant['Adres']) ?>">Nieuwe Klus</a>
+
 <form method="POST">
     <input type="submit" value="Terug naar Overzicht" name="overzicht">
 </form>
@@ -93,4 +99,3 @@ if (isset($_POST['WatOfWanneer'])) {
     exit;
 }
 ?>
-<a href="../public">terug naar overzicht</a>
