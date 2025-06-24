@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    form {
+        width: 100%;
+        text-align: center;
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input, textarea,select, button {
+            background-color: #e8e8e8;
+            padding: 10px;
+            margin: 5px 0;
+            width: fit-content;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+        table {
+            width: 25%;
+            margin: 25px auto;
+            border-collapse: collapse;
+
+            th, td {
+                text-align: center;
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+            }
+
+            input {
+                background-color: #e8e8e8;
+                padding: 10px;
+                margin: 5px 0;
+                width: fit-content;
+                border: 1px solid #ccc;
+                border-radius: 7px;
+            }
+
+            button {
+                background-color: #e8e8e8;
+                padding: 10px;
+                margin: 5px 0;
+                width: fit-content;
+                border: 1px solid #ccc;
+                border-radius: 7px;
+                cursor: pointer;
+            }
+
+            th {
+                background-color: #dddddd;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 680px) {
+    body {
+        table {
+            width: 100%;
+            font-size: 14px;
+            th, td {
+            text-align: center;
+            padding: 3px 3px;
+            border: 1px solid #ddd;
+        }
+        }
+
+    }
+}

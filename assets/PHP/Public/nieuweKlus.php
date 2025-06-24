@@ -33,6 +33,7 @@ if (isset($_POST["submit"]))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Css/nieuweKlus.css">
     <title>Voeg een klus toe</title>
     <script src="../../Js/jquery-3.7.1.min.js"></script>
     <script>
@@ -61,13 +62,13 @@ if (isset($_POST["submit"]))
 
 <body>
     <form method="Post">
-        <label>Naam klus: <input type="text" name="naam" required></label><br>
-        <label>Opmerkingen: </label><textarea name="opmerkingen"></textarea><br>
-        <label>Voorrijkosten: <input type="number" name="voorrijkosten" step="0.01" required></label><br>
-        <label>Uurtarief: <input type="number" name="uurtarief" step="0.01" required></label><br>
-        <label>Gewerkte Uren: <input type="text" name="gewerkteUren" required></label><br>
-        <label>Datum: <input type="date" name="datum" required></label><br>
-        <label>Materialen: <select id="materials">
+        <label>Naam klus:<br><input type="text" name="naam" required></label><br>
+        <label>Opmerkingen:<br></label><textarea name="opmerkingen"></textarea><br>
+        <label>Voorrijkosten:<br><input type="number" name="voorrijkosten" step="0.01" required></label><br>
+        <label>Uurtarief:<br><input type="number" name="uurtarief" step="0.01" required></label><br>
+        <label>Gewerkte Uren:<br><input type="text" name="gewerkteUren" required></label><br>
+        <label>Datum:<br><input type="date" name="datum" required></label><br>
+        <label>Materialen:<br><select id="materials">
                 <?=
                 require_once("../Src/materialen.php");
                 $materialenService = new Materialen();
@@ -77,10 +78,9 @@ if (isset($_POST["submit"]))
                 }
 
                 ?>
-            </select></label>
-        <button type="button" id="addMateriaal">Voeg toe</button>
+            </select><button type="button" id="addMateriaal">Voeg toe</button></label>
         <table id="materiaalTabel"></table>
-        <input type="submit" value="Voeg toe" name="submit">
+        <input type="submit" value="Voeg klus toe" name="submit">
     </form>
 </body>
 
